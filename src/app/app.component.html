@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="jumbotron">
+    <div>
+      <form [formGroup]="formUser" class="form-group d-flex justify-content-center" (ngSubmit)="returnUser(formUser.value.inputUser);">
+        <input formControlName="inputUser" class="form-control mr-sm-2" type="text" placeholder="Nome de Usuário">
+        <button mat-raised-button class="search" type="submit">Pesquisar</button>
+      </form>
+    </div>
+
+  </div>
+  <!-- <app-user *ngIf= "user" [user]="user"></app-user> -->
+  <!-- <app-notFound *ngIf="error"></app-notFound> -->
+</div>
+
+<router-outlet></router-outlet>
+
+
