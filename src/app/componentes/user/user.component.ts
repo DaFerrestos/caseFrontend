@@ -16,18 +16,6 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  login: string = "Anderson-Couto";
+  login: string = '';
 
-  // getter() {
-  //     this.userService.getUser(this.login).subscribe((data: User) =>{
-  //       this.user = data;
-  //       console.log('A variável que preenchemos', this.user);
-  //       console.log('O data que recebemos', data);
-  //     }, (error: any) =>{
-  //       this.erro = error;
-  //       console.error('Erro: ', error)
-  //     }
-
-  //   );
-  // }
 }

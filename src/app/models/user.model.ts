@@ -31,4 +31,5 @@ export class User {
  following!: number;
  created_at!: string;
  updated_at!: string;
+ public_repos!: string;
 }
