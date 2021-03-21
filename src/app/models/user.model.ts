@@ -32,4 +32,5 @@ export class User {
  created_at!: string;
  updated_at!: string;
  public_repos!: string;
+  static login: any;
 }

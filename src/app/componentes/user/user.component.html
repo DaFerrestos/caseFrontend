@@ -1,40 +1,4 @@
-<div class="user" >
 
-  <div *ngIf = "user.name">
-    <h1>{{user.name}}</h1>
-    <div  class="card mb-3" form-group d-flex justify-content-center>
-      <h3 class="card-header" >Detalhamento de Usuário</h3>
-      <div class="card-body">
-        <h4 class="card-title">{{user.name}}</h4>
-      </div>
-      <img [attr.src]= "user.avatar_url" alt="imagem do usuário pesquisado" class="img-user">
-      <p class="card-subtitle text-muted">@{{user.login}}</p>
-      <div class="card-body">
-        <p class="card-text">{{user.bio}}</p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Repositórios:{{user.public_repos}}</li>
-        <li class="list-group-item">Followers:{{user.followers}}</li>
-        <li class="list-group-item">Following:{{user.following}}</li>
-      </ul>
-      <div class="card-footer text-muted">
-       {{user.location}}
-      </div>
-    </div>
-  </div>
-  <!-- <div class="btn-repodesc">
-  <button type="button" class="btn btn-primary btn-repo" >Repositórios</button>
-  {{' '}}
-  <button type="button" class="btn btn-primary btn-destac" >Destacados</button>
-  </div> -->
-
-
-  <!-- <div *ngIf="!user.name" class="alert alert-danger text-center">
-    <h2><strong>Ops!</strong></h2>
-    <p>Usuário não encontrado &#x2639;</p>
-    <p>Tente novamente!</p>
-  </div> -->
-</div>
 
 
 

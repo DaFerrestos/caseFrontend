@@ -29,6 +29,7 @@ export class UserService {
   }
 
   getRepos(url: string) {
+    const urlRepo = `https://api.github.com/users/${User.login}/repos`;
     return this.getUrl(url).then(data => {
       return data;
     });

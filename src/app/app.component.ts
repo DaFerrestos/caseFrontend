@@ -16,7 +16,19 @@ export class AppComponent {
 
   user: User = new User();
 
-  constructor(private us: UserService) {
+  formRepos: FormGroup = new FormGroup({
+    inputUser: new FormControl('')
+  });
+
+  repo: User = new User();
+
+  formStarred: FormGroup = new FormGroup({
+    inputUser: new FormControl('')
+  });
+
+  starred: User = new User();
+
+  constructor(private us: UserService, private rp: UserService, private st: UserService) {
 
    }
 
@@ -30,11 +42,52 @@ export class AppComponent {
     }).then(() => {
       this.us.getRepos(this.user.repos_url).then( data => {
         console.log(data);
+
       });
     }).then(() => {
       this.us.getStarred(this.user).then( data => {
         console.log(data);
       });
     });
+
+  }
+
+
+  returnRepos(url: string ) {
+    console.log();
+    this.rp.getRepos(url).then((data: User) => {
+      console.log(data);
+      this.user = data;
+
+    }).then(() => {
+      this.us.getRepos(this.user.repos_url).then( data => {
+        console.log(data);
+
+      });
+    }).then(() => {
+      this.us.getStarred(this.user).then( data => {
+        console.log(data);
+      });
+    });
+
+  }
+
+  returnStarred(url: any ) {
+    console.log();
+    this.st.getStarred(url).then((data: User) => {
+      console.log(data);
+      this.user = data;
+
+    }).then(() => {
+      this.us.getRepos(this.user.repos_url).then( data => {
+        console.log(data);
+
+      });
+    }).then(() => {
+      this.us.getStarred(this.user).then( data => {
+        console.log(data);
+      });
+    });
+
   }
 }

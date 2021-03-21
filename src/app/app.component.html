@@ -1,7 +1,7 @@
 <div class="container">
   <div class="jumbotron">
     <div>
-      <form [formGroup]="formUser" class="form-group d-flex justify-content-center" (ngSubmit)="returnUser(formUser.value.inputUser);">
+      <form [formGroup]="formUser" class="form-group d-flex justify-content-center" (ngSubmit)="returnUser(formUser.value.inputUser);" style="max-height: min-content;">
         <input formControlName="inputUser" class="form-control mr-sm-2" type="text" placeholder="Nome de Usuário">
         <button mat-raised-button class="search" type="submit" [disabled]>Pesquisar</button>
       </form>
@@ -11,37 +11,47 @@
   <app-user></app-user>
   <div class="user" >
 
-    <div *ngIf = "user.name">
-      <h1>{{user.name}}</h1>
+    <div *ngIf = "user.name" class="user-card">
+
       <div  class="card mb-3" form-group d-flex justify-content-center>
-        <h2 class="card-header" >Detalhamento de Usuário</h2>
-        <div class="card-body">
-          <h4 class="card-title">{{user.name}}</h4>
+        <h1 class="card-header" style="text-align: center;" >Detalhamento de Usuário</h1>
+
+        <div class="card-body" style="position: relative; text-align: center;">
+
+          <span class="cabecalho" style="align-content: center; position: relative;">
+            <h2 class="card-title" style="color: rgb(238, 12, 12); align-text:center;">{{user.name}}</h2>
+          </span>
+          <span class="img-user" style="position: relative; margin: auto; width: 50%;">
+            <img [attr.src]= "user.avatar_url" alt="imagem do usuário pesquisado" style="border-radius: 50%; max-width: 200px; max-height: 200px;">
+          </span>
+
+          <p class="card-subtitle text-muted" style="position: relative; align-self: flex-end; margin-top: 25px; font-size: 24px;">@{{user.login}}</p>
+
         </div>
-        <img [attr.src]= "user.avatar_url" alt="imagem do usuário pesquisado" class="img-user">
-        <p class="card-subtitle text-muted">@{{user.login}}</p>
-        <div class="card-body">
+
+
+        <div class="card-body" style="text-align: center; position: relative">
           <p class="card-text">{{user.bio}}</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Repositórios:{{user.public_repos}}</li>
-          <li class="list-group-item">Followers:{{user.followers}}</li>
-          <li class="list-group-item">Following:{{user.following}}</li>
+          <li class="list-group-item">Repositórios: <span style="color:red;">{{user.public_repos}}</span></li>
+          <li class="list-group-item">Followers: <span style="color: red;">{{user.followers}}</span></li>
+          <li class="list-group-item">Following: <span style="color: red;">{{user.following}}</span></li>
         </ul>
-        <div class="card-footer text-muted">
+        <div class="card-footer text-muted" style="text-align: center;">
          {{user.location}}
         </div>
+
+        <div class="btn-repodesc" style="text-align: right; position: relative;">
+          <button type="button" class="btn btn-primary search btn-repo" [disabled] (ngSubmit)="returnRepos(formRepos.value)" >Repositórios</button>
+          {{' '}}
+          <button type="button" class="btn btn-primary search btn-destac" [disabled] (ngSubmit)="returnStarred(formStarred.value)">Destacados</button>
+        </div>
+
       </div>
     </div>
 
-    <div class="btn-repodesc">
-    <button type="button" class="btn btn-primary btn-repo" >Repositórios</button>
-    {{' '}}
-    <button type="button" class="btn btn-primary btn-destac" >Destacados</button>
-    </div>
-
-
-    <div *ngIf="!user.name" class="alert alert-danger text-center">
+    <div *ngIf="!user" class="alert alert-danger text-center">
       <h2><strong>Ops!</strong></h2>
       <p>Usuário não encontrado &#x2639;</p>
       <p>Tente novamente!</p>
