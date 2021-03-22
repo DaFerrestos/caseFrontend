@@ -16,21 +16,21 @@
       <div  class="card mb-3" form-group d-flex justify-content-center>
         <h1 class="card-header" style="text-align: center;" >Detalhamento de Usuário</h1>
 
-        <div class="card-body" style="position: relative; text-align: center;">
+        <div class="card-body">
 
-          <span class="cabecalho" style="align-content: center; position: relative;">
-            <h2 class="card-title" style="color: rgb(238, 12, 12); align-text:center;">{{user.name}}</h2>
+          <span class="cabecalho">
+            <h2 class="card-title">{{user.name}}</h2>
           </span>
-          <span class="img-user" style="position: relative; margin: auto; width: 50%;">
+          <span class="img-user">
             <img [attr.src]= "user.avatar_url" alt="imagem do usuário pesquisado" style="border-radius: 50%; max-width: 200px; max-height: 200px;">
           </span>
 
-          <p class="card-subtitle text-muted" style="position: relative; align-self: flex-end; margin-top: 25px; font-size: 24px;">@{{user.login}}</p>
+          <p class="card-subtitle text-muted">@{{user.login}}</p>
 
         </div>
 
 
-        <div class="card-body" style="text-align: center; position: relative">
+        <div class="card-body">
           <p class="card-text">{{user.bio}}</p>
         </div>
         <ul class="list-group list-group-flush">
@@ -38,17 +38,19 @@
           <li class="list-group-item">Followers: <span style="color: red;">{{user.followers}}</span></li>
           <li class="list-group-item">Following: <span style="color: red;">{{user.following}}</span></li>
         </ul>
-        <div class="card-footer text-muted" style="text-align: center;">
+        <div class="card-footer text-muted">
          {{user.location}}
         </div>
-
-        <div class="btn-repodesc" style="text-align: right; position: relative;">
-          <button type="button" class="btn btn-primary search btn-repo" [disabled] (ngSubmit)="returnRepos(formRepos.value)" >Repositórios</button>
-          {{' '}}
-          <button type="button" class="btn btn-primary search btn-destac" [disabled] (ngSubmit)="returnStarred(formStarred.value)">Destacados</button>
-        </div>
-
       </div>
+
+    </div>
+
+
+    <div class="btn-repodesc">
+      <button type="button" (click)="redirectPage('repositorios')">Repositórios</button>
+      {{' '}}
+      <button type="button" (click)="redirectPage('destacados')">Destacados</button>
+
     </div>
 
     <div *ngIf="!user" class="alert alert-danger text-center">
@@ -61,7 +63,11 @@
 
 </div>
 
+
+<!-- <app-repositorios></app-repositorios>
+<app-destacados></app-destacados> -->
 <router-outlet></router-outlet>
+
 
 
 

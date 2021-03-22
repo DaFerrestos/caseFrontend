@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
+import { throwError, Observable } from 'rxjs';
+import { catchError, take } from 'rxjs/operators';
 
 
 @Injectable({
@@ -26,6 +28,7 @@ export class UserService {
     return this.getUrl(url).then(data => {
       return data;
     });
+
   }
 
   getRepos(url: string) {
@@ -41,4 +44,20 @@ export class UserService {
       return data;
     });
   }
+
+
+  handleError(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+
+      errorMessage = error.error.message;
+    } else {
+
+      errorMessage = `Código do erro: ${error.status}, ` + `mensagem: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
+  }
+
+
 }

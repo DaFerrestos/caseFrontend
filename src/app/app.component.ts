@@ -2,6 +2,8 @@ import { User } from './models/user.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { UserService } from './services/user.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -28,9 +30,13 @@ export class AppComponent {
 
   starred: User = new User();
 
-  constructor(private us: UserService, private rp: UserService, private st: UserService) {
+  constructor(private us: UserService, private rp: UserService, private st: UserService, private router:Router ) {
 
    }
+
+    redirectPage(pageName: string): void{
+      this.router.navigate([`${pageName}`]);
+    }
 
 
     returnUser(form: any ) {
