@@ -1,5 +1,67 @@
-<div>
+<div class="container">
+  <div class="jumbotron">
+    <div>
+      <form [formGroup]="formUser" class="form-group d-flex justify-content-center" (ngSubmit)="returnUser(formUser.value.inputUser);" style="max-height: min-content;">
+        <input formControlName="inputUser" class="form-control mr-sm-2" type="text" placeholder="Nome de Usuário">
+        <button mat-raised-button class="search" type="submit" [disabled]>Pesquisar</button>
+      </form>
+    </div>
 
+  </div>
+  <app-user></app-user>
+  <div class="user" >
+
+    <div *ngIf = "user.name" class="user-card">
+
+      <div  class="card mb-3" form-group d-flex justify-content-center>
+        <h1 class="card-header" style="text-align: center;" >Detalhamento de Usuário</h1>
+
+        <div class="card-body">
+
+          <span class="cabecalho">
+            <h2 class="card-title">{{user.name}}</h2>
+          </span>
+          <span class="img-user">
+            <img [attr.src]= "user.avatar_url" alt="imagem do usuário pesquisado" style="border-radius: 50%; max-width: 200px; max-height: 200px;">
+          </span>
+
+          <p class="card-subtitle text-muted">@{{user.login}}</p>
+
+        </div>
+
+
+        <div class="card-body">
+          <p class="card-text">{{user.bio}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Repositórios: <span style="color:red;">{{user.public_repos}}</span></li>
+          <li class="list-group-item">Followers: <span style="color: red;">{{user.followers}}</span></li>
+          <li class="list-group-item">Following: <span style="color: red;">{{user.following}}</span></li>
+        </ul>
+        <div class="card-footer text-muted">
+         {{user.location}}
+        </div>
+      </div>
+
+    </div>
+
+
+    <div *ngIf="user.name" class="btn-repodesc">
+      <button type="button" (click)="redirectPage('repositorios')">Repositórios</button>
+      {{' '}}
+      <button type="button" (click)="redirectPage('destacados')">Destacados</button>
+
+    </div>
+
+    <div *ngIf="!user" class="alert alert-danger text-center">
+      <h2><strong>Ops!</strong></h2>
+      <p>Usuário não encontrado &#x2639;</p>
+      <p>Tente novamente!</p>
+    </div>
+  </div>
+
+
+</div>
 
 
 

@@ -1,0 +1,52 @@
+.container {
+background-color: white;
+margin-top: 3.5%;
+margin-block-end: 3.5%;
+}
+
+.user {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-header {
+  text-align: center;
+}
+
+.card-body {
+  position: relative;
+  text-align: center;
+}
+
+.cabecalho {
+  align-content: center;
+  position: relative;
+}
+
+.card-title {
+  color: rgb(238, 12, 12);
+  text-align: center;
+}
+
+.img-user {
+  position: relative;
+  margin: auto;
+  width: 50%;
+  border-radius: 50%;
+}
+
+.card-subtitle {
+  position: relative;
+  align-self: flex-end;
+  margin-top: 25px;
+  font-size: 20px;
+}
+
+.card-footer {
+  text-align: center;
+
+}
+
+.btn-repodesc {
+  text-align: right;
+  position: relative;
+}

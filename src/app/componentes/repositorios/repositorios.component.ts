@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { User } from './../../models/user.model';
 
@@ -9,10 +10,16 @@ import { User } from './../../models/user.model';
 })
 export class RepositoriosComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
   user: User = new User();
+  repositories: string[] = [];
+
+  constructor(private userService: UserService, private route: ActivatedRoute) { }
+
 
   ngOnInit(): void {
+    const repos = this.route.snapshot.paramMap.get('url');
+
+
   }
 
 }
