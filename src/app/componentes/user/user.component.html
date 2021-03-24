@@ -8,7 +8,7 @@
     </div>
 
   </div>
-  <app-user></app-user>
+
   <div class="user" >
 
     <div *ngIf = "user.name" class="user-card">
@@ -52,6 +52,9 @@
       <button type="button" (click)="redirectPage('destacados')">Destacados</button>
 
     </div>
+
+    <app-repositorios></app-repositorios>
+    <app-destacados></app-destacados>
 
     <div *ngIf="!user" class="alert alert-danger text-center">
       <h2><strong>Ops!</strong></h2>

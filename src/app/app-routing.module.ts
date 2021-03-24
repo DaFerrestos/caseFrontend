@@ -5,7 +5,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: ' ', component: UserComponent},
+  {path: '', component: UserComponent},
   {path: 'repositorios', component: RepositoriosComponent},
   {path: 'destacados', component: DestacadosComponent}
 ];

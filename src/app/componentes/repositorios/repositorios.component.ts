@@ -19,6 +19,7 @@ export class RepositoriosComponent implements OnInit {
   ngOnInit(): void {
     const repos = this.route.snapshot.paramMap.get('url');
 
+    let repositories = this.repositories;
 
   }
 

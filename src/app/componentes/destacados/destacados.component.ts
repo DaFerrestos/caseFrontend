@@ -19,7 +19,8 @@ export class DestacadosComponent implements OnInit {
 
   ngOnInit(): void {
     const starred = this.route.snapshot.paramMap.get('url');
-    
+
+    let starreds = this.starreds;
 
   }
 

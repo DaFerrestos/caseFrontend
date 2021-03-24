@@ -3,6 +3,7 @@ import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -26,7 +27,7 @@ export class UserComponent {
   redirectPage(pageName: string): void{
     this.router.navigate([`${pageName}`]);
   }
-  
+
 
   returnUser(form: any ) {
   console.log(form);
